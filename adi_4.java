@@ -1,16 +1,31 @@
 class adi_4
 {
-    public static void main()
+    public static void main ()
     {
-        int SUM1=0;int SUM2=0,X=0,Y=0;
-        for(X=1;X<=100;X++)
+        int product=0,x=0,y=0,digit=0,reverse=0,maxi=0,store;
+        for(x=100;x<=999;x++)
         {
-            SUM1=SUM1+(X*X);
+            for(y=100;y<=999;y++)
+            {
+                product=x*y;
+                store=product;
+                while(product!=0)
+                {
+                    digit=product%10;
+                    reverse=reverse*10+digit;
+                    product=product/10;
+                }
+                if(store==reverse)
+                {
+                    if(store>maxi)
+                {
+                    maxi=store;
+                }
+            }
+            reverse=0;
         }
-        for (Y=1;Y<=100;Y++)
-        {
-            SUM2=SUM2+Y;
-        }
-        System.out.print("The difference between the sum of the squares of the first 10 natural numbers and the square of the sum="+((SUM2*SUM2)-SUM1));
+    }
+        System.out.print("largest palindrome product="+maxi);
     }
 }
+    
